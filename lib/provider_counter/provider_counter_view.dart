@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_share/custom_appbar/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
 import 'provider_counter_provider.dart';
@@ -16,11 +17,7 @@ class Provider_counterPage extends StatelessWidget {
     final provider = context.read<Provider_counterProvider>();
 
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text('provider 状态管理'),
-      ),
+      appBar: CustomAppBar(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.

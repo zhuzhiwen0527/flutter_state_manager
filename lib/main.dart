@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart'hide Page;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Page;
 import 'package:flutter/rendering.dart';
-import 'package:flutter_share/animal.dart';
 import 'package:flutter_share/bloc_counter/bloc_counter_view.dart';
 import 'package:flutter_share/counter/counter.dart';
 import 'package:flutter_share/fr_counter/fr_counter_page.dart';
