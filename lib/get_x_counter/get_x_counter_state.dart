@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-class GetX_counterState {
+class GetXCounterState {
 
   final count =  0.obs;
 

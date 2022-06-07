@@ -1,14 +1,14 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum Fr_counterAction { incrementCounterAction,updateCount }
+enum FrCounterAction { incrementCounterAction,updateCount }
 
-class Fr_counterActionCreator {
-  static Action onAction() {
-    return  Action(Fr_counterAction.incrementCounterAction);
+class FrCounterActionCreator {
+  static Action incrementCounterAction() {
+    return  Action(FrCounterAction.incrementCounterAction);
   }
 
   static Action updateCount(int count) {
-    return Action(Fr_counterAction.updateCount, payload: count);
+    return Action(FrCounterAction.updateCount, payload: count);
   }
 }

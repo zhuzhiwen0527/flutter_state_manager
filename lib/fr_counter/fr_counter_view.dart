@@ -9,7 +9,7 @@ import 'package:flutter_share/fr_counter/fr_counter_state.dart';
 * viewService：这个参数，我们可以使用其中的方法：buildComponent("组件名")，调用我们封装的相关组件
 */
 
-Widget buildView(Fr_counterState state, Dispatch dispatch, ViewService viewService) {
+Widget buildView(FrCounterState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
     appBar: AppBar(
       // Here we take the value from the MyHomePage object that was created by
@@ -37,7 +37,7 @@ Widget buildView(Fr_counterState state, Dispatch dispatch, ViewService viewServi
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: (){
-        dispatch(Fr_counterActionCreator.onAction());
+        dispatch(FrCounterActionCreator.incrementCounterAction());
       },
       tooltip: 'Increment',
       child: Icon(Icons.add),

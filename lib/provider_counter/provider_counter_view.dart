@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'provider_counter_provider.dart';
 
-class Provider_counterPage extends StatelessWidget {
+class ProviderCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(

@@ -1,15 +1,15 @@
 import 'package:fish_redux/fish_redux.dart';
 
-class Fr_counterState implements Cloneable<Fr_counterState> {
+class FrCounterState implements Cloneable<FrCounterState> {
 
   int count = 0;
 
   @override
-  Fr_counterState clone() {
-    return Fr_counterState()..count = count;
+  FrCounterState clone() {
+    return FrCounterState()..count = count;
   }
 }
 
-Fr_counterState initState(Map<String, dynamic> args) {
-  return Fr_counterState();
+FrCounterState initState(Map<String, dynamic> args) {
+  return FrCounterState();
 }

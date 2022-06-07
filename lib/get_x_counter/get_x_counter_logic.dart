@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 
 import 'get_x_counter_state.dart';
 
-class GetX_counterLogic extends GetxController {
-  final state = GetX_counterState();
+class GetXCounterLogic extends GetxController {
+  final state = GetXCounterState();
 
   @override
   void onReady() {

@@ -1,26 +1,26 @@
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_share/bloc_cubit_counter/cubit_counter_cubit.dart';
 
-import 'get_x_counter_logic.dart';
-import 'get_x_counter_state.dart';
 
-class GetXCounterPage extends StatefulWidget {
-  @override
-  _GetXCounterPageState createState() => _GetXCounterPageState();
-}
-
-class _GetXCounterPageState extends State<GetXCounterPage> {
-
-  final GetXCounterLogic logic = Get.put(GetXCounterLogic());
-
+class CubitCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (BuildContext context) => CounterCubit(),
+      child: Builder(builder: (context) => _buildPage(context)),
+    );
+  }
+
+  Widget _buildPage(BuildContext context) {
+    final bloc = BlocProvider.of<CounterCubit>(context);
 
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text('GetX 状态管理'),
+        title: Text('bloc cubit 状态管理'),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -32,25 +32,20 @@ class _GetXCounterPageState extends State<GetXCounterPage> {
             Text(
               'You have pushed the button this many times:',
             ),
-            Obx(()=> Text(
-              '${logic.state.count.value}',
-              style: Theme.of(context).textTheme.headline4,
-            ),)
-
+            BlocBuilder<CounterCubit,CounterState>(builder: (context,state){
+              return Text('${state.count}');
+            })
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: logic.incrementCounter,
+        onPressed: (){
+          bloc.incrementCounter();
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-
-  @override
-  void dispose() {
-    Get.delete<GetXCounterLogic>();
-    super.dispose();
-  }
 }
+

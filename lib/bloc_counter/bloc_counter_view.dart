@@ -6,17 +6,17 @@ import 'bloc_counter_bloc.dart';
 import 'bloc_counter_event.dart';
 import 'bloc_counter_state.dart';
 
-class Bloc_counterPage extends StatelessWidget {
+class BlocCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => Bloc_counterBloc()..add(InitEvent()),
+      create: (BuildContext context) => BlocCounterBloc()..add(InitEvent()),
       child: Builder(builder: (context) => _buildPage(context)),
     );
   }
 
   Widget _buildPage(BuildContext context) {
-    final bloc = BlocProvider.of<Bloc_counterBloc>(context);
+    final bloc = BlocProvider.of<BlocCounterBloc>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -34,7 +34,7 @@ class Bloc_counterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder<Bloc_counterBloc,Bloc_counterState>(builder: (context,state){
+            BlocBuilder<BlocCounterBloc,BlocCounterState>(builder: (context,state){
               return Text('${state.count}');
             })
           ],

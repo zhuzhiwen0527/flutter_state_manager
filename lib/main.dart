@@ -4,10 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Page;
 import 'package:flutter/rendering.dart';
 import 'package:flutter_share/bloc_counter/bloc_counter_view.dart';
+import 'package:flutter_share/bloc_cubit_counter/cubit_counter_page.dart';
 import 'package:flutter_share/counter/counter.dart';
 import 'package:flutter_share/fr_counter/fr_counter_page.dart';
 import 'package:flutter_share/get_x_counter/get_x_counter_view.dart';
 import 'package:flutter_share/get_x_easy_counter/get_x_easy_counter_view.dart';
+import 'package:flutter_share/my_provider/my_counter_page.dart';
 import 'package:flutter_share/provider_counter/provider_counter_view.dart';
 
 
@@ -27,17 +29,17 @@ void main() {
   // debugPaintPointersEnabled = true;
 
   if (kDebugMode) {
-    PluginManager.instance                                 // 注册插件
-      ..register(WidgetInfoInspector())
-      ..register(WidgetDetailInspector())
-      ..register(ColorSucker())
-      ..register(AlignRuler())
-      ..register(Performance())
-      ..register(ShowCode())
-      ..register(MemoryInfoPage())
-      ..register(CpuInfoPage())
-      ..register(DeviceInfoPanel())
-      ..register(Console());
+    // PluginManager.instance                                 // 注册插件
+    //   ..register(WidgetInfoInspector())
+    //   ..register(WidgetDetailInspector())
+    //   ..register(ColorSucker())
+    //   ..register(AlignRuler())
+    //   ..register(Performance())
+    //   ..register(ShowCode())
+    //   ..register(MemoryInfoPage())
+    //   ..register(CpuInfoPage())
+    //   ..register(DeviceInfoPanel())
+    //   ..register(Console());
     runApp(injectUMEWidget(child: MyApp(), enable: true)); // 初始化
   } else {
     runApp(MyApp());
@@ -51,7 +53,7 @@ class MyApp extends StatelessWidget {
   ///定义路由
   final AbstractRoutes routes = PageRoutes(
     pages: <String, Page<Object, dynamic>>{
-      "Fr_counterPage": Fr_counterPage(),
+      "Fr_counterPage": FrCounterPage(),
     },
   );
 
@@ -64,10 +66,12 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         'Counter':(context)=> Counter(),
-        'provider_counter':(context)=> Provider_counterPage(),
-        'GetX_counter':(context)=> GetX_counterPage(),
-        'bloc_counter':(context)=> Bloc_counterPage(),
+        'provider_counter':(context)=> ProviderCounterPage(),
+        'GetX_counter':(context)=> GetXCounterPage(),
+        'bloc_counter':(context)=> BlocCounterPage(),
+        'cubit_counter':(context)=> CubitCounterPage(),
         'GetX_Easy_counter':(context)=> GetXEasyCounterPage(),
+        'my_counter':(context)=> MyCounterPage(),
       },
       home: MyHomePage(),
       onGenerateRoute: (RouteSettings settings) {
@@ -109,19 +113,22 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildItem('Counter'),
-            _buildItem('provider_counter'),
-            _buildItem('GetX_counter'),
-            _buildItem('GetX_Easy_counter'),
-            _buildItem('bloc_counter'),
-            _buildItem('Fr_counterPage'),
-
-          ],
-        ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _buildItem('Counter'),
+              _buildItem('provider_counter'),
+              _buildItem('GetX_counter'),
+              _buildItem('GetX_Easy_counter'),
+              _buildItem('bloc_counter'),
+              _buildItem('cubit_counter'),
+              _buildItem('Fr_counterPage'),
+              _buildItem('cubit_counter'),
+              _buildItem('my_counter'),
+            ],
+          ),
+        )
       ),
     );
   }

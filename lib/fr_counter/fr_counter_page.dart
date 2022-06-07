@@ -5,18 +5,18 @@ import 'fr_counter_reducer.dart';
 import 'fr_counter_state.dart';
 import 'fr_counter_view.dart';
 
-class Fr_counterPage extends Page<Fr_counterState, Map<String, dynamic>> {
-  Fr_counterPage()
+class FrCounterPage extends Page<FrCounterState, Map<String, dynamic>> {
+  FrCounterPage()
       : super(
             initState: initState,
             effect: buildEffect(),
             reducer: buildReducer(),
             view: buildView,
-            dependencies: Dependencies<Fr_counterState>(
+            dependencies: Dependencies<FrCounterState>(
                 adapter: null,
-                slots: <String, Dependent<Fr_counterState>>{
+                slots: <String, Dependent<FrCounterState>>{
                 }),
-            middleware: <Middleware<Fr_counterState>>[
+            middleware: <Middleware<FrCounterState>>[
             ],);
 
 }

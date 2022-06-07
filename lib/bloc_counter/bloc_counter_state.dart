@@ -1,11 +1,12 @@
-class Bloc_counterState {
-  Bloc_counterState init() {
-    return Bloc_counterState();
+class BlocCounterState {
+  BlocCounterState init() {
+    return BlocCounterState();
   }
 
   int count = 0;
 
-  Bloc_counterState clone() {
-    return Bloc_counterState()..count = count;
+  BlocCounterState clone() {
+    return BlocCounterState()..count = count;
   }
 }
+

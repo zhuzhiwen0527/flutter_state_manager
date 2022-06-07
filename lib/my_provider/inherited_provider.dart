@@ -7,7 +7,7 @@ class InheritedProvider<T> extends InheritedWidget{
   final T data;
 
   @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
+  bool updateShouldNotify(covariant InheritedProvider oldWidget) {
     return true;
   }
 

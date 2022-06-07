@@ -27,11 +27,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  flutter_bloc: ^7.0.1
+  flutter_bloc: ^8.0.1
   # 全家桶 https://github.com/jonataslaw/getx
-  get: ^4.1.4
+  get: ^4.6.5
   fish_redux: ^0.3.7
-  provider: ^5.0.0
+  provider: ^6.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
